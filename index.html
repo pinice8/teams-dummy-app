@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Dummy config</title>
+<script src="https://res.cdn.office.net/teams-js/2.31.0/js/MicrosoftTeams.min.js"></script></head>
+<body style="font-family:sans-serif;padding:24px">
+<h2>Dummy Test App</h2>
+<p>Click <b>Save</b> to add this dummy tab to the meeting.</p>
+<script>
+microsoftTeams.app.initialize().then(function () {
+  microsoftTeams.pages.config.setValidityState(true);
+  microsoftTeams.pages.config.registerOnSaveHandler(function (saveEvent) {
+    microsoftTeams.pages.config.setConfig({
+      entityId: "dummy-meeting-tab",
+      contentUrl: "https://pinice8.github.io/teams-dummy-app/content.html",
+      websiteUrl: "https://pinice8.github.io/teams-dummy-app/content.html",
+      suggestedDisplayName: "Dummy"
+    }).then(function () { saveEvent.notifySuccess(); });
+  });
+});
+</script></body></html>

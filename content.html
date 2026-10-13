@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Dummy content</title>
+<script src="https://res.cdn.office.net/teams-js/2.31.0/js/MicrosoftTeams.min.js"></script></head>
+<body style="font-family:sans-serif;padding:24px">
+<h2>Hello from the dummy app</h2>
+<p id="ctx">Loading Teams context...</p>
+<script>
+microsoftTeams.app.initialize().then(function () {
+  return microsoftTeams.app.getContext();
+}).then(function (c) {
+  document.getElementById("ctx").textContent =
+    "Frame context: " + c.page.frameContext + " | meeting id: " + (c.meeting ? c.meeting.id : "none");
+  microsoftTeams.app.notifySuccess();
+});
+</script></body></html>
